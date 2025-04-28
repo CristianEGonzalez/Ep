@@ -21,13 +21,9 @@ const mostrarProducto = async (req, res) => {
 }
 
 const agregarProducto = async (req, res) => {
-    const { nombre, precio } = req.body
-    if(!nombre || !precio){
-        res.status(400).json({message: "Faltan datos"})
-    }else{
-        const producto = await Producto.create({nombre, precio})
-        res.status(200).json(producto)
-    }
+    const { nombre,precio } = req.body
+    const producto = await Producto.create({nombre, precio})
+    res.status(200).json(producto)
 }
 
 const modificarProducto = async (req, res) => {
